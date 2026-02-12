@@ -1,0 +1,278 @@
+/* ═══════════════════════════════════════════
+   TOP BAR — Spotify-style sticky header
+   ═══════════════════════════════════════════ */
+
+.topBar {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    padding: var(--space-3) var(--space-5);
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    transition: background-color var(--duration-normal) var(--ease-out),
+        border-color var(--duration-normal) var(--ease-out);
+}
+
+.leftSection {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.centerSection {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+}
+
+.rightSection {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-shrink: 0;
+}
+
+/* When scrolled: match main-scroll border height and shape (same radius as sidebar/main area) */
+.scrolled {
+    background: var(--color-bg-secondary);
+    border-bottom-color: var(--color-divider);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+/* ─── Navigation Arrows ─── */
+.navArrows {
+    display: flex;
+    gap: var(--space-2);
+    flex-shrink: 0;
+}
+
+.navArrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    transition: background-color var(--duration-fast) var(--ease-out),
+        opacity var(--duration-fast) var(--ease-out),
+        transform var(--duration-fast) var(--ease-spring);
+}
+
+.navArrow:hover {
+    transform: scale(1.05);
+}
+
+[data-theme="sepia"] .navArrow {
+    background: var(--color-surface-active);
+    color: var(--color-text-primary);
+}
+
+.navArrow:active {
+    opacity: 0.6;
+    transform: scale(0.95);
+}
+
+/* ─── Home Button ─── */
+.homeButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--color-surface-active);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-out),
+        background-color var(--duration-fast) var(--ease-out),
+        transform var(--duration-fast) var(--ease-spring);
+}
+
+.homeButton:hover {
+    color: var(--color-text-primary);
+    transform: scale(1.05);
+}
+
+.homeButtonActive {
+    color: var(--color-text-primary);
+}
+
+/* ─── Search ─── */
+.searchArea {
+    position: relative;
+    flex: 1;
+    max-width: 600px;
+}
+
+.searchWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 52px;
+    background: var(--color-surface);
+    border: 1px solid transparent;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    transition: border-color var(--duration-fast) var(--ease-out),
+        box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.searchWrapper:hover {
+    border-color: var(--color-border);
+}
+
+.searchWrapper:focus-within {
+    border-color: var(--color-text-primary);
+    box-shadow: 0 0 0 1px var(--color-text-primary);
+}
+
+.searchIcon {
+    position: absolute;
+    left: var(--space-5);
+    color: var(--color-text-tertiary);
+    pointer-events: none;
+    flex-shrink: 0;
+    transition: color var(--duration-fast) var(--ease-out);
+}
+
+.searchWrapper:focus-within .searchIcon {
+    color: var(--color-text-primary);
+}
+
+.searchInput {
+    flex: 1;
+    height: 100%;
+    padding: 0 var(--space-5) 0 calc(var(--space-5) + 30px);
+    font-size: var(--text-base);
+    font-family: var(--font-sans);
+    color: var(--color-text-primary);
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.searchInput::placeholder {
+    color: var(--color-text-tertiary);
+}
+
+/* Vertical divider between input and trailing action */
+.divider {
+    width: 1px;
+    height: 28px;
+    background: var(--color-border-strong);
+    flex-shrink: 0;
+}
+
+/* Trailing icon inside search bar (browse or clear) */
+.browseButton,
+.clearButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    margin-right: 6px;
+    border-radius: 50%;
+    color: var(--color-text-secondary);
+    background: transparent;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    transition: color var(--duration-fast) var(--ease-out),
+        background-color var(--duration-fast) var(--ease-out),
+        transform var(--duration-fast) var(--ease-spring);
+}
+
+.browseButton:hover,
+.clearButton:hover {
+    transform: scale(1.05);
+}
+
+.browseButton:active,
+.clearButton:active {
+    transform: scale(0.95);
+}
+
+/* ─── Actions (theme toggle) ─── */
+.rightSection {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-shrink: 0;
+}
+
+.themeButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-surface-active);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    transition: background-color var(--duration-fast) var(--ease-out),
+        transform var(--duration-fast) var(--ease-spring);
+}
+
+.themeButton:hover {
+    background: var(--color-surface-hover);
+    transform: scale(1.05);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .topBar {
+        padding: var(--space-2) var(--space-3);
+        gap: var(--space-2);
+        border-radius: 0; /* match main-scroll when full-width on mobile */
+    }
+
+    .topBar.scrolled {
+        border-radius: 0;
+    }
+
+    .centerSection {
+        gap: var(--space-1);
+    }
+
+    .navArrows {
+        display: none;
+    }
+
+    .homeButton {
+        display: none;
+    }
+
+    .searchWrapper {
+        max-width: none;
+        height: 48px;
+    }
+    
+    .searchInput {
+        font-size: var(--text-sm);
+        padding: 0 var(--space-4) 0 calc(var(--space-4) + 26px);
+    }
+    
+    .searchIcon {
+        left: var(--space-4);
+    }
+}

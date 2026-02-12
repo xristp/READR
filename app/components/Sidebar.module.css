@@ -1,0 +1,199 @@
+/* ═══════════════════════════════════════════
+   SIDEBAR — Spotify-style left panel
+   ═══════════════════════════════════════════ */
+
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    /* No top padding so nav panel aligns with main content container top */
+    padding: 0 0 var(--space-2) var(--space-2);
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+/* ─── Nav Panel (Home, Browse) ─── */
+.navPanel {
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--space-4) var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: color var(--duration-fast) var(--ease-out),
+        background-color var(--duration-fast) var(--ease-out);
+}
+
+.navItem:hover {
+    color: var(--color-text-primary);
+}
+
+.navItemActive {
+    color: var(--color-text-primary);
+}
+
+/* ─── Library Panel ─── */
+.libraryPanel {
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-md);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.libraryHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-4) var(--space-3);
+    flex-shrink: 0;
+}
+
+.libraryHeaderLeft {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+}
+
+/* ─── Library List ─── */
+.libraryList {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    padding: 0 var(--space-2) var(--space-2);
+}
+
+.libraryList:hover {
+    scrollbar-color: var(--color-text-tertiary) transparent;
+}
+
+.libraryItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: inherit;
+    transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.libraryItem:hover {
+    background: var(--color-surface-hover);
+}
+
+.libraryItemCover {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--color-surface-active);
+    flex-shrink: 0;
+}
+
+.libraryItemImage {
+    object-fit: cover;
+}
+
+.libraryItemPlaceholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: var(--color-text-tertiary);
+}
+
+.libraryItemInfo {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 1px;
+}
+
+.libraryItemTitle {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.libraryItemAuthor {
+    font-size: var(--text-xs);
+    color: var(--color-text-tertiary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ─── Library Empty State ─── */
+.libraryEmpty {
+    padding: var(--space-6) var(--space-4);
+    text-align: center;
+}
+
+.libraryEmptyTitle {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.libraryEmptyText {
+    font-size: var(--text-xs);
+    color: var(--color-text-tertiary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+}
+
+.libraryEmptyAction {
+    display: inline-flex;
+    padding: var(--space-2) var(--space-5);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    color: var(--color-bg);
+    background: var(--color-text-primary);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: transform var(--duration-fast) var(--ease-spring),
+        opacity var(--duration-fast) var(--ease-out);
+}
+
+.libraryEmptyAction:hover {
+    transform: scale(1.04);
+    opacity: 0.9;
+    color: var(--color-bg);
+}
+
+/* ─── Responsive: hide sidebar on mobile ─── */
+@media (max-width: 900px) {
+    .sidebar {
+        display: none;
+    }
+}

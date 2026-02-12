@@ -1,0 +1,68 @@
+.card {
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    overflow: hidden;
+}
+
+.cover {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background: linear-gradient(90deg,
+            var(--color-bg-secondary) 0%,
+            var(--color-surface-hover) 40%,
+            var(--color-bg-secondary) 80%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4);
+}
+
+.line {
+    height: 12px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(90deg,
+            var(--color-bg-secondary) 0%,
+            var(--color-surface-hover) 40%,
+            var(--color-bg-secondary) 80%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.lineTitle {
+    width: 85%;
+    height: 14px;
+}
+
+.lineAuthor {
+    width: 60%;
+}
+
+.lineMeta {
+    width: 40%;
+    margin-top: var(--space-2);
+}
+
+.textBlock {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.textLine {
+    height: 16px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
