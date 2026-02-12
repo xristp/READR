@@ -4,8 +4,8 @@
  */
 
 const GUTENDEX_BASE = 'https://gutendex.com';
-const REQUEST_TIMEOUT_MS = 15000; // 15s - Gutendex can be slow for some topics
-const RETRY_DELAY_MS = 1500;
+const REQUEST_TIMEOUT_MS = 8000;  // 8s — must fit within Vercel serverless limits (10s Hobby)
+const RETRY_DELAY_MS = 800;
 
 /**
  * Fetch with timeout and abort support (server-side)

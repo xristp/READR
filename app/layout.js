@@ -27,7 +27,6 @@ export const metadata = {
   authors: [{ name: 'READR' }],
   icons: {
     icon: [
-      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
       { url: '/icon.svg', type: 'image/svg+xml' },
     ],
     apple: [
