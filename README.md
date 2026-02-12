@@ -164,15 +164,3 @@ This project is licensed under the **MIT License** — see [LICENSE](./LICENSE) 
 - [Gutendex](https://gutendex.com) for the free JSON API over Gutenberg metadata.
 
 ---
-
-## Is it GitHub-portfolio ready?
-
-| Criteria | Status |
-|----------|--------|
-| **README** | ✅ Clear hero, badges, walkthrough with screenshots, features, stack, structure, and run instructions |
-| **Screenshots** | ✅ Four-step UI flow (home → browse → detail → reader) in `public/` and linked in README |
-| **Code quality** | ✅ Consistent patterns, error handling, timeouts, and cache strategy; see `CODE_AUDIT.md` if present for a deeper review |
-| **Run from clone** | ✅ `npm install` + `npm run dev` with no secrets or env required |
-| **License** | ✅ MIT + CONTRIBUTING.md |
-
-
