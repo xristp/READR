@@ -3,6 +3,9 @@ import HomePageClient from './HomePageClient';
 import { getHomePageData } from './page.server';
 import styles from './page.module.css';
 
+// Don't pre-render at build time — fetch data on first request, then cache via revalidate
+export const dynamic = 'force-dynamic';
+
 function getGreeting() {
   const h = new Date().getHours();
   if (h < 12) return 'Good morning';

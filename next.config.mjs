@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  turbopack: {
+    root: import.meta.dirname,
+  },
   poweredByHeader: false,
   images: {
     minimumCacheTTL: 86400,
